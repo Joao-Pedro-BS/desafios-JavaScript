@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="javascript/script.js" defer></script>
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Weather</title>
+</head>
+<body>
+    <div class="container">
+        <div class="forms">
+            <h3>Insira um local</h3>
+            <div class="container-forms-input">
+                <input type="text" id="city-input" placeholder="Digite o nome do local">
+                <button id="search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+        </div>
+        <div id="weather-data" class="hide">
+            <h2>
+                <i class="fa-solid fa-location-dot"></i>
+                <span id="city"></span>
+                <img src="" id="country">
+            </h2>
+            <p id="temperature"><span></span>&deg;C</p>
+        
+            <div class="description-container">
+                <p id="description"></p>
+                <img src="" class="description-icon">
+            </div>
+            <div class="details-container">
+                <p id="umidity">
+                    <i class="fa-solid fa-droplet"></i>
+                    <span></span>
+                </p>
+                <p id="wind">
+                    <i class="fa-solid fa-wind"></i>
+                    <span></span>
+                </p>     
+            </div>
+        </div>
+    </div>
+</body>
+</html>
