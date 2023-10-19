@@ -23,15 +23,15 @@ const getWeatherData = async(city) => {
 
 const showWeatherData = async(city) => {
     const data = await getWeatherData(city);
+    const flagCountry  = await data.sys.country;
 
     cityElement.innerText = data.name;
-    tempElement.innerText = parseInt(data.main.temp);
-    descElement.innerText = data.weather[0].description;
     umidElement.innerText = `${data.main.humidity}%`;
     windElement.innerText = `${data.wind.speed}km/h`;
-    // descIconElement.setAttribute('src', `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`);
-    // flagElement.setAttribute('src', `https://flagsapi.com/${data.sys.country}/flat/64.png`);
-   
+    tempElement.innerText = parseInt(data.main.temp);
+    descElement.innerText = data.weather[0].description;
+    flagElement.setAttribute('src', `https://flagsapi.com/${flagCountry}/flat/64.png`);
+
     weatherContainer.classList.remove('hide');
 };
 
