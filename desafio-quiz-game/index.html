@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Game</title>
+</head>
+<body>
+    <div id="quiz-container">
+        <div id="game-setup">
+            
+            <div>
+                <label for="categoria">Categoria:</label>
+                <select id="categoria">
+                    <option value="">Qualquer uma</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="quantidade">Quantidade de questões:</label>
+                <input type="number" id="quantidade" min="1" max="20" value="10">
+            </div>
+
+            <div>
+                <label for="dificuldade">Dificuldade:</label>
+                <select id="dificuldade">
+                    <option value="">Qualquer uma</option>
+                    <option value="facil">Qualquer uma</option>
+                    <option value="medio">Qualquer uma</option>
+                    <option value="dificil">Qualquer uma</option>
+                </select>
+            </div>
+
+            <button id="start-btn">Começar</button>
+        </div>
+
+        <div id="quiz" style="display: none;">
+            <div id="progress"></div>
+            <div id="currentScore"></div>
+            <div id="highScore"></div>
+            <div id="question"></div>
+            <div id="answers"></div>
+            <div id="result"></div>
+        </div>
+    </div>
+
+    <script src="JavaScript/script.js"></script>
+</body>
+</html>
