@@ -28,7 +28,7 @@ div#game-setup label{
     margin-bottom: 5px;
 }
 
-#categoria, #quantidade, #dificuldade{
+#category, #amount, #difficulty{
     width: 100%;
     padding: 10px;
     border-radius: 8px;
