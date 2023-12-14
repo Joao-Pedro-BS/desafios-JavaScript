@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const option = document.createElement('option');
             option.value = category.id;
             option.textContent = category.name;
-            categorySelect.appendChild('option');          
+            categorySelect.appendChild(option);          
         });});
     };
     
@@ -76,5 +76,20 @@ document.addEventListener('DOMContentLoaded', () => {
             updateHighScore();
             showResults();
         }
-    }
+    };
+    // 
+    function displayAnswers(question){
+        answersContainer.innerHTML = '';
+        const answers = [...question.incorrect_answers, 
+        question.correct_answers];
+        shuffleArray(answers);
+
+        answers.forEach(answer => {
+            const button = document.createElement(button);
+            button.innerHTML = decodeHTML(answer);
+            button.className = 'answer-btn';
+            button.addEventListener('click', () => selectAnswer(button, question.correct_answers, answers));
+            answersContainer.appendChild(button);
+        });
+    };
 })
