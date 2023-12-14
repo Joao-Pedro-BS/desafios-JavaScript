@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const gameSetupDiv = document.getElementById('game-setup');
     const quizDiv = document.getElementById('quiz');
     const categorySelect = document.getElementById('category');
-    const AmountInput = document.getElementById('amount');
+    const amountInput = document.getElementById('amount');
     const difficultySelect = document.getElementById('difficulty');
     const startButton = document.getElementById('start-btn');
 
@@ -38,4 +38,43 @@ document.addEventListener('DOMContentLoaded', () => {
         });});
     };
     
+    // função para iniciar o APP
+    function startGame(){
+        const difficulty = difficultySelect.value;
+        const category = categorySelect.value;
+        const amount = amountInput.value;
+        fetchQuestions(difficulty, category, amount);
+        gameSetupDiv.style.display = 'none';
+        quizDiv.style.display = 'block';
+
+    }
+    // função para requesição dos dados das questões
+    function fetchQuestions(difficulty, category, amount){
+        let url = `https://opentdb.com/api_category.php?amount=${amount}`;
+        if(difficulty) url += `&difficulty=${difficulty}`;
+        if(category) url += `&category=${category}`;
+        url += `&type=multiple`;
+
+        fetch(url).then(response => response.json())
+        .then(data => {
+            currentQuestions = data.results;
+            questionIndex = 0;
+            score = 0;
+
+            displayQuestion();
+        }).catch(error => alert('Error:'+error));
+    }
+    // 
+    function displayQuestion(){
+        if(questionIndex < currentQuestions.length){
+            let currentQuestion = currentQuestions[questionIndex];
+            questionContainer.innerHTML = decodeHTML(currentQuestion.question);
+            displayAnswers(currentQuestion);
+            updateProgress();
+            questionStartTime = Date.now();
+        }else{
+            updateHighScore();
+            showResults();
+        }
+    }
 })
